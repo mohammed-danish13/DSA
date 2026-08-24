@@ -1,8 +1,9 @@
-n=int(input("Enter a number: "))
-temp=0
-while n>0:
-    temp=n%10
-    temp=temp**temp
-    n=n//10
-if temp==n:
-    print("The number is an Armstrong number.")
+a=[5,3,7,2,4]
+k=3
+max_sum=sum(a[:k])
+window_sum=max_sum
+
+for i in range(k,len(a)):
+    max_sum=window_sum-a[i-k]+a[i]
+    window_sum=max(max_sum,window_sum)
+print(max_sum)

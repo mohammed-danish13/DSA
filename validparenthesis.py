@@ -1,14 +1,14 @@
-s=input("Enter parentheses: ")
-stack=[]
-pairs = {'}': '{', ')': '(', ']': '['} 
+class Solution(object):
+    def isValid(self, s):
+        stack = []
+        pairs = {'}': '{', ')': '(', ']': '['}
 
-for char in s:
-    if char in '{[(':
-        stack.append(char)
-    else:
-        if not stack or stack[-1]!=pairs[char]:
-            print("invalid")
-            break
-        stack.pop() 
-else:
-    print("valid" if not stack else "invalid")
+        for char in s:
+            if char in '[({':
+                stack.append(char)
+            else:
+                if not stack or stack[-1] != pairs[char]:
+                    return False
+                stack.pop()
+
+        return not stack
